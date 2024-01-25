@@ -8,7 +8,7 @@ df = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/mai
 
 
 
-active_week = datetime.now().isocalendar()[1]-2
+active_week = datetime.now().isocalendar()[1]-1
 
 
 app = Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP])
@@ -16,6 +16,7 @@ app = Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = html.Div(
     children=[
         html.H1(children='Horario de clases'),
+        #html.P(f'{pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/main/Fechas.csv").values[0][0]}'),
         html.Br(),
         html.P('Nombre del maestro:'),
         dcc.Dropdown(id='my-dropdown', multi=False,
@@ -60,8 +61,9 @@ def update_my_graph(val_chosen, week_chosen):
         tab["Hora"] = tab.index
         fig = go.Figure(data=[go.Table(
             header=dict(values=[x for x in tab.columns], align='center',font=dict(color='white', size=12)),
-            cells=dict(values=[tab.Hora, tab.Lunes, tab.Martes, tab.Miercoles,tab.Jueves, tab.Viernes], align='center'),)]) 
+            cells=dict(values=[tab.Hora, tab.Lunes, tab.Martes, tab.Miercoles,tab.Jueves, tab.Viernes], align='center', height=40))])  
                        #fill=dict({"color": [["white", "red", "red", "blue", "red"],["white", "red", "blue", "red", "red"]]})
+        fig.update_layout(height=600, width=1000)
 
         return fig, f"Semana {week_chosen}"
     elif len(val_chosen) == 0:
