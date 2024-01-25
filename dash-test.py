@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 from datetime import datetime
 
 df = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/main/clip_transformed2.csv")
-
+dfweek = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/main/Fechas.csv")
 
 
 active_week = datetime.now().isocalendar()[1]-1
@@ -16,14 +16,14 @@ app = Dash(__name__,external_stylesheets=[dbc.themes.BOOTSTRAP])
 app.layout = html.Div(
     children=[
         html.H1(children='Horario de clases'),
-        #html.P(f'{pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/main/Fechas.csv").values[0][0]}'),
         html.Br(),
         html.P('Nombre del maestro:'),
         dcc.Dropdown(id='my-dropdown', multi=False,
                      options=[{'label': x, 'value': x} for x in df["Maestro"].sort_values().unique()],
                      value=df["Maestro"].sort_values().unique()[0]),
         html.Br(),
-        html.H6(id="week", children="Semana 1"),
+        html.Legend(id="week", children="Semana 1"),
+        html.H6(id= 'weekdescription',children=f'{dfweek.loc[active_week,["Inicio"]][0].strip() + " - " + dfweek.loc[active_week,["Fin"]][0].strip()}'),
         dbc.Pagination(id="pagination", max_value=17,active_page=active_week),
         dcc.Graph(id='graph-output', figure={},)], 
         style={'width': '90%', 'display': 'inline-block',"text-align": "left", 'padding': '50px'}
@@ -47,12 +47,14 @@ def produce_week2(data,week):
 @app.callback(
     Output(component_id='graph-output', component_property='figure'),
     Output(component_id='week', component_property='children'),
+    Output(component_id='weekdescription', component_property='children'),
     [Input(component_id='my-dropdown', component_property='value')],
+    [Input(component_id='pagination', component_property='active_page')],
     [Input(component_id='pagination', component_property='active_page')],
     prevent_initial_call=False
 )
 
-def update_my_graph(val_chosen, week_chosen):
+def update_my_graph(val_chosen, week_chosen, week):
     if len(val_chosen) > 0:
         #head = list(map(produce_week2, df.groupby(["Maestro"]).get_group(val_chosen)["Info"]))
         #dff = head.groupby(["Maestro"]).loc[val_chosen]
@@ -65,9 +67,9 @@ def update_my_graph(val_chosen, week_chosen):
                        #fill=dict({"color": [["white", "red", "red", "blue", "red"],["white", "red", "blue", "red", "red"]]})
         fig.update_layout(height=600, width=1000)
 
-        return fig, f"Semana {week_chosen}"
+        return fig, f"Semana {week_chosen}",f'{dfweek.loc[week,["Inicio"]][0].strip() + " - " + dfweek.loc[week,["Fin"]][0].strip()}'
     elif len(val_chosen) == 0:
-        return Dash.no_update, f"Semana {week_chosen}"
+        return Dash.no_update, f"Semana {week_chosen}", f'{dfweek.loc[week,["Inicio"]][0].strip() + " - " + dfweek.loc[week,["Fin"]][0].strip()}'
 
 
 if __name__ == '__main__':
