@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 from datetime import datetime
 
-df = pd.read_csv("clip_transformed2.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/main/clip_transformed2.csv")
 
 
 
@@ -17,7 +17,7 @@ app.layout = html.Div(
     children=[
         html.H1(children='Horario de clases'),
         html.Br(),
-        html.P('Selecciona un maestro:'),
+        html.P('Nombre del maestro:'),
         dcc.Dropdown(id='my-dropdown', multi=False,
                      options=[{'label': x, 'value': x} for x in df["Maestro"].sort_values().unique()],
                      value=df["Maestro"].sort_values().unique()[0]),
