@@ -1,33 +1,8 @@
-# This file may be used to create an environment using:
-# $ conda create --name <env> --file <this file>
-# platform: osx-arm64
-blas=1.0=openblas
-bottleneck=1.3.5=py310h96f19d2_0
-bzip2=1.0.8=h620ffc9_4
-ca-certificates=2023.12.12=hca03da5_0
-libcxx=14.0.6=h848a8c0_0
-libffi=3.4.4=hca03da5_0
-libgfortran=5.0.0=11_3_0_hca03da5_28
-libgfortran5=11.3.0=h009349e_28
-libopenblas=0.3.21=h269037a_0
-llvm-openmp=14.0.6=hc6e5704_0
-ncurses=6.4=h313beb8_0
-numexpr=2.8.7=py310hecc3335_0
-numpy=1.26.3=py310h3b2db8e_0
-numpy-base=1.26.3=py310ha9811e2_0
-openssl=3.0.12=h1a28f6b_0
-pandas=2.1.4=py310h46d7db6_0
-pip=23.3.1=py310hca03da5_0
-python=3.10.13=hb885b13_0
-python-dateutil=2.8.2=pyhd3eb1b0_0
-python-tzdata=2023.3=pyhd3eb1b0_0
-pytz=2023.3.post1=py310hca03da5_0
-readline=8.2=h1a28f6b_0
-setuptools=68.2.2=py310hca03da5_0
-six=1.16.0=pyhd3eb1b0_1
-sqlite=3.41.2=h80987f9_0
-tk=8.6.12=hb8d0fd4_0
-tzdata=2023d=h04d1e81_0
-wheel=0.41.2=py310hca03da5_0
-xz=5.4.5=h80987f9_0
-zlib=1.2.13=h5a0b063_0
+Bottleneck @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_07078715-3ab7-4562-8d3d-d56b0eaa0f7dp504n_ny/croots/recipe/bottleneck_1657175566567/work
+numexpr @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_45yefq0kt6/croot/numexpr_1696515289183/work
+numpy @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_cfbbnu3tzv/croot/numpy_and_numpy_base_1704311724719/work/dist/numpy-1.26.3-cp310-cp310-macosx_11_0_arm64.whl#sha256=ccbf655215ec644fb09de935330d2602e8101b485f43bc98fefdd9ada37b9193
+pandas @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_82r7p4atwy/croot/pandas_1702318000240/work/dist/pandas-2.1.4-cp310-cp310-macosx_11_0_arm64.whl#sha256=c8b7db467b7e229a08d8c41ceef1d279ae19ed4c6deb6d4dc494a3a64d00cddf
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+pytz @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_6btwyyj8a1/croot/pytz_1695131592184/work
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+tzdata @ file:///croot/python-tzdata_1690578112552/work
