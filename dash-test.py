@@ -4,8 +4,8 @@ import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 from datetime import datetime
 
-df = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/main/clip_transformed2.csv")
-dfweek = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios/main/Fechas.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios-additional-files/main/clip_transformed2.csv")
+dfweek = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios-additional-files/main/Fechas.csv")
 
 
 active_week = datetime.now().isocalendar()[1]-1
