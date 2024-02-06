@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 from datetime import datetime
 
-df = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios-additional-files/main/clip_transformed2.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios-additional-files/main/segundoclip_transformed3.csv")
 dfweek = pd.read_csv("https://raw.githubusercontent.com/diegooguajardoo/horarios-additional-files/main/Fechas.csv")
 
 
